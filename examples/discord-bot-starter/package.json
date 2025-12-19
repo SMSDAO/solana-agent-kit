@@ -11,7 +11,7 @@
   "author": "dimitrov-d",
   "dependencies": {
     "discord.js": "^14.17.2",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.6.1",
     "solana-agent-kit": "^1.3.4"
   },
   "devDependencies": {
