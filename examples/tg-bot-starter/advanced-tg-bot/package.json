@@ -13,7 +13,7 @@
     "@langchain/langgraph": "^0.2.36",
     "@langchain/langgraph-checkpoint-postgres": "^0.0.2",
     "@langchain/openai": "^0.3.16",
-    "firebase": "^11.1.0",
+    "firebase": "^11.10.0",
     "grammy": "^1.33.0",
     "messages": "link:@langchain/core/messages",
     "next": "15.1.3",
