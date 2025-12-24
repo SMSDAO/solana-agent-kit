@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@langchain/langgraph-checkpoint-postgres':
-        specifier: ^0.0.2
-        version: 0.0.2(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1)))(@langchain/langgraph-checkpoint@0.0.13(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1))))
+        specifier: ^0.1.2
+        version: 0.1.2(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1)))(@langchain/langgraph-checkpoint@0.0.13(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1))))
       solana-agent-kit:
         specifier: ^1.3.6
         version: 1.3.7(@noble/hashes@1.6.1)(axios@1.7.9)(borsh@2.0.0)(buffer@6.0.3)(bufferutil@4.0.8)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(sodium-native@3.4.1)(typescript@5.6.3)(utf-8-validate@5.0.10)
@@ -216,12 +216,12 @@ packages:
     peerDependencies:
       '@langchain/core': '>=0.2.21 <0.4.0'
 
-  '@langchain/langgraph-checkpoint-postgres@0.0.2':
-    resolution: {integrity: sha512-st4qH1DZkYU6WGymG+TP2DEgxy8HH2EMq5Re51Z1sj11Ac4Q0VGJNlHjvGXR/QJjfmWpgBztvLYaMnUlNAybkg==}
+  '@langchain/langgraph-checkpoint-postgres@0.1.2':
+    resolution: {integrity: sha512-0Utktn8jzuAXN5iagIkdRD0O159G9iXoauqO1P1xttpov1MOgHMyMXh17mqt/FrZr6Fi/5LqSTxvbjod5doCHw==}
     engines: {node: '>=18'}
     peerDependencies:
-      '@langchain/core': '>=0.2.31 <0.4.0'
-      '@langchain/langgraph-checkpoint': ~0.0.6
+      '@langchain/core': '>=0.2.31 <0.4.0 || ^1.0.0-alpha'
+      '@langchain/langgraph-checkpoint': ^0.1.0
 
   '@langchain/langgraph-checkpoint@0.0.13':
     resolution: {integrity: sha512-amdmBcNT8a9xP2VwcEWxqArng4gtRDcnVyVI4DsQIo1Aaz8e8+hH17zSwrUF3pt1pIYztngIfYnBOim31mtKMg==}
@@ -2935,7 +2935,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@langchain/langgraph-checkpoint-postgres@0.0.2(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1)))(@langchain/langgraph-checkpoint@0.0.13(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1))))':
+  '@langchain/langgraph-checkpoint-postgres@0.1.2(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1)))(@langchain/langgraph-checkpoint@0.0.13(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1))))':
     dependencies:
       '@langchain/core': 0.3.26(openai@4.77.0(zod@3.24.1))
       '@langchain/langgraph-checkpoint': 0.0.13(@langchain/core@0.3.26(openai@4.77.0(zod@3.24.1)))
