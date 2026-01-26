@@ -21,7 +21,7 @@ export default function AdminPage() {
     }
 
     // Check if user is admin
-    const adminWallets = process.env.NEXT_PUBLIC_ADMIN_WALLETS?.split(',') || []
+    const adminWallets = process.env.NEXT_PUBLIC_ADMIN_WALLETS?.split(',').map(wallet => wallet.trim()).filter(Boolean) || []
     const userIsAdmin = !!(publicKey && adminWallets.includes(publicKey.toBase58()))
     setIsAdmin(userIsAdmin)
 

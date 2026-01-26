@@ -61,7 +61,7 @@ export function RoleManager() {
                     key={index}
                     className="px-2 py-1 bg-primary-500/20 text-primary-300 text-xs rounded-full"
                   >
-                    {permission.replace('_', ' ')}
+                    {permission.replaceAll('_', ' ')}
                   </span>
                 ))}
               </div>
