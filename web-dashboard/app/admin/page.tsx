@@ -22,7 +22,7 @@ export default function AdminPage() {
 
     // Check if user is admin
     const adminWallets = process.env.NEXT_PUBLIC_ADMIN_WALLETS?.split(',') || []
-    const userIsAdmin = publicKey && adminWallets.includes(publicKey.toBase58())
+    const userIsAdmin = !!(publicKey && adminWallets.includes(publicKey.toBase58()))
     setIsAdmin(userIsAdmin)
 
     if (!userIsAdmin) {
