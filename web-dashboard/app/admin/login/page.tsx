@@ -42,7 +42,7 @@ export default function AdminLoginPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-white mb-2">Admin Login</h1>
-            <p className="text-blue-200">Solana Agent Kit Dashboard</p>
+            <p className="text-blue-200">Solana Remix AI Dashboard</p>
           </div>
 
           {/* Login Form */}

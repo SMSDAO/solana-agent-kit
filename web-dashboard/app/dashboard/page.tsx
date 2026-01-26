@@ -51,7 +51,7 @@ export default function DashboardPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-white">Solana Agent Kit</h1>
+              <h1 className="text-2xl font-bold text-white">Solana Remix AI</h1>
               <nav className="hidden md:flex space-x-4">
                 <a href="/dashboard" className="text-white hover:text-blue-300 transition-colors">
                   Dashboard
@@ -114,7 +114,7 @@ export default function DashboardPage() {
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 mt-16">
         <div className="text-center text-gray-400 text-sm border-t border-white/10 pt-8">
-          <p>© 2024 Solana Agent Kit Dashboard • Built with Next.js • Deployable on Vercel</p>
+          <p>© 2024 Solana Remix AI Dashboard • Built with Next.js • Deployable on Vercel</p>
         </div>
       </footer>
     </div>

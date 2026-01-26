@@ -1,6 +1,6 @@
-# Solana Agent Kit Dashboard
+# Solana Remix AI Dashboard
 
-A full-featured dashboard for Solana Agent Kit with wallet authentication, email-secured admin panels, and role-based access control.
+A full-featured dashboard for Solana Remix AI with wallet authentication, email-secured admin panels, and role-based access control.
 
 ## Features
 

@@ -23,7 +23,7 @@ export default function Home() {
             {/* Logo/Header */}
             <div>
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-                Solana Agent Kit
+                Solana Remix AI
               </h1>
               <p className="text-xl md:text-2xl text-blue-200">
                 Full Dashboard & Admin Panel
@@ -62,7 +62,7 @@ export default function Home() {
 
             {/* Footer Info */}
             <div className="text-sm text-gray-400 mt-8 pt-8 border-t border-white/10">
-              <p>Powered by Solana Agent Kit • Deployable on Vercel</p>
+              <p>Powered by Solana Remix AI • Deployable on Vercel</p>
             </div>
           </div>
         </div>
