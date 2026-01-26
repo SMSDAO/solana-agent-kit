@@ -25,6 +25,9 @@ Anyone - whether an SF-based AI researcher or a crypto-native builder - can brin
 [![Run on Repl.it](https://replit.com/badge/github/sendaifun/solana-agent-kit)](https://replit.com/@sendaifun/Solana-Agent-Kit)
 > Replit template created by [Arpit Singh](https://github.com/The-x-35)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSMSDAO%2Fsolana-agent-kit&project-name=solana-agent-kit-dashboard&repository-name=solana-agent-kit)
+> Full dashboard with wallet authentication and admin panels
+
 ## 🔧 Core Blockchain Features
 
 - **Token Operations**
@@ -103,6 +106,46 @@ Anyone - whether an SF-based AI researcher or a crypto-native builder - can brin
 
 ## 📃 Documentation
 You can view the full documentation of the kit at [docs.sendai.fun](https://docs.sendai.fun/v0/introduction)
+
+## 🌐 Web Dashboard
+
+Solana Agent Kit now includes a full-featured web dashboard with:
+
+- **🚀 Deployable on Vercel** - One-click deployment support
+- **📊 Full Dashboard** - Portfolio tracking, transaction history, and analytics
+- **👥 Admin Panels** - User management with role-based access control (RBAC)
+- **🔐 Smart Wallet Authentication** - Secure login with Phantom, Solflare, Torus, and Ledger
+- **🌐 Multi-Network Support** - Preset public RPCs for Mainnet, Testnet, and Devnet
+
+### Quick Deploy
+
+Deploy the dashboard to Vercel in one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSMSDAO%2Fsolana-agent-kit&project-name=solana-agent-kit-dashboard&repository-name=solana-agent-kit)
+
+Or run locally:
+
+```bash
+cd web-dashboard
+npm install
+npm run dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000) and connect your Solana wallet to get started.
+
+For detailed documentation, see [web-dashboard/README.md](web-dashboard/README.md).
+
+### Preset Public RPCs
+
+The dashboard includes preset public RPC endpoints for easy deployment:
+
+- **Mainnet**: `https://api.mainnet-beta.solana.com`
+- **Testnet**: `https://api.testnet.solana.com`
+- **Devnet**: `https://api.devnet.solana.com`
+
+These can be customized via environment variables for production deployments with premium RPC providers.
+
+## 📃 SDK Documentation
 
 ## 📦 Installation
 
