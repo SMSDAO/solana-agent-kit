@@ -1,50 +1,36 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useWallet } from '@solana/wallet-adapter-react'
+import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { UserManagement } from '@/components/UserManagement'
 import { RoleManager } from '@/components/RoleManager'
 import { ActivityLog } from '@/components/ActivityLog'
 
 export default function AdminPage() {
   const router = useRouter()
-  const { connected, publicKey } = useWallet()
-  const [isAdmin, setIsAdmin] = useState(false)
+  const { data: session, status } = useSession()
   const [activeTab, setActiveTab] = useState<'users' | 'roles' | 'activity'>('users')
 
   useEffect(() => {
-    if (!connected) {
-      router.push('/')
-      return
+    if (status === 'unauthenticated') {
+      router.push('/admin/login')
     }
+  }, [status, router])
 
-    // Check if user is admin
-    const adminWallets = process.env.NEXT_PUBLIC_ADMIN_WALLETS?.split(',').map(wallet => wallet.trim()).filter(Boolean) || []
-    const userIsAdmin = !!(publicKey && adminWallets.includes(publicKey.toBase58()))
-    setIsAdmin(userIsAdmin)
-
-    if (!userIsAdmin) {
-      router.push('/dashboard')
-    }
-  }, [connected, publicKey, router])
-
-  if (!connected || !isAdmin) {
+  if (status === 'loading') {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
         <div className="text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">Access Denied</h1>
-          <p className="text-gray-300 mb-8">You need admin privileges to access this page.</p>
-          <button
-            onClick={() => router.push('/dashboard')}
-            className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
-          >
-            Go to Dashboard
-          </button>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-500 mx-auto mb-4"></div>
+          <p className="text-gray-300">Loading...</p>
         </div>
       </div>
     )
+  }
+
+  if (!session) {
+    return null
   }
 
   return (
@@ -65,8 +51,16 @@ export default function AdminPage() {
               </nav>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-yellow-400 text-sm font-semibold">Admin</span>
-              <WalletMultiButton />
+              <div className="text-right">
+                <p className="text-yellow-400 text-sm font-semibold">Admin</p>
+                <p className="text-gray-400 text-xs">{session.user?.email}</p>
+              </div>
+              <button
+                onClick={() => signOut({ callbackUrl: '/admin/login' })}
+                className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+              >
+                Sign Out
+              </button>
             </div>
           </div>
         </div>
@@ -129,7 +123,7 @@ export default function AdminPage() {
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 mt-16">
         <div className="text-center text-gray-400 text-sm border-t border-white/10 pt-8">
-          <p>© 2024 Solana Agent Kit Dashboard • Admin Panel</p>
+          <p>© 2024 Solana Agent Kit Dashboard • Admin Panel • Secured with Email Authentication</p>
         </div>
       </footer>
     </div>

@@ -1,13 +1,13 @@
 # Solana Agent Kit Dashboard
 
-A full-featured dashboard for Solana Agent Kit with wallet authentication, admin panels, and role-based access control.
+A full-featured dashboard for Solana Agent Kit with wallet authentication, email-secured admin panels, and role-based access control.
 
 ## Features
 
 - 🚀 **Deployable on Vercel** - Ready for one-click deployment
 - 📊 **Full Dashboard** - View portfolio, transactions, and analytics
 - 👥 **Admin Panels** - User and role management with RBAC
-- 🔐 **Smart Wallet Login** - Secure authentication with Phantom, Solflare, and more
+- 🔐 **Dual Authentication** - Smart wallet login for users, secure email login for admins
 - 🌐 **Multi-Network Support** - Mainnet, Testnet, and Devnet RPCs
 
 ## Quick Start
@@ -38,7 +38,8 @@ cp .env.example .env.local
 ```
 
 Edit `.env.local` and configure:
-- `NEXT_PUBLIC_ADMIN_WALLETS` - Comma-separated list of admin wallet addresses
+- `NEXTAUTH_URL` - Your application URL (e.g., http://localhost:3000)
+- `NEXTAUTH_SECRET` - Generate with: `openssl rand -base64 32`
 - Optional: Custom RPC URLs for better performance
 
 4. Run the development server:
@@ -49,6 +50,27 @@ pnpm dev
 ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Admin Access
+
+### Email Authentication
+
+The admin panel is secured with email/password authentication using NextAuth.js.
+
+**Demo Credentials:**
+- Email: `admin@aiagentkit.com`
+- Password: `admin123`
+
+**Access the admin panel at:** [http://localhost:3000/admin](http://localhost:3000/admin)
+
+### Adding Admin Users
+
+To add more admin users, edit the `ADMIN_USERS` array in:
+```
+app/api/auth/[...nextauth]/route.ts
+```
+
+For production, replace the hardcoded users with a database lookup.
 
 ## Deployment on Vercel
 
@@ -79,17 +101,20 @@ vercel
 4. Import your GitHub repository
 5. Set root directory to `web-dashboard`
 6. Configure environment variables:
+   - `NEXTAUTH_URL` - Your production URL
+   - `NEXTAUTH_SECRET` - Generate with: `openssl rand -base64 32`
    - `NEXT_PUBLIC_SOLANA_MAINNET_RPC`
    - `NEXT_PUBLIC_SOLANA_TESTNET_RPC`
    - `NEXT_PUBLIC_SOLANA_DEVNET_RPC`
    - `NEXT_PUBLIC_DEFAULT_NETWORK`
-   - `NEXT_PUBLIC_ADMIN_WALLETS`
 7. Click "Deploy"
 
 ## Environment Variables
 
 ### Required Variables
 
+- `NEXTAUTH_URL` - Application URL (e.g., https://yourdomain.vercel.app)
+- `NEXTAUTH_SECRET` - Secret key for session encryption
 - `NEXT_PUBLIC_DEFAULT_NETWORK` - Default network (mainnet, testnet, or devnet)
 
 ### Preset Public RPCs

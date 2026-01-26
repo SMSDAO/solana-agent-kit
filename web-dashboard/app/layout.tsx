@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { WalletProvider } from '@/components/WalletProvider'
+import { AuthProvider } from '@/components/AuthProvider'
 
 export const metadata: Metadata = {
   title: 'Solana Agent Kit Dashboard',
@@ -15,9 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans">
-        <WalletProvider>
-          {children}
-        </WalletProvider>
+        <AuthProvider>
+          <WalletProvider>
+            {children}
+          </WalletProvider>
+        </AuthProvider>
       </body>
     </html>
   )
