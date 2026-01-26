@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "web-dashboard/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "web-dashboard/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_SOLANA_MAINNET_RPC": "https://api.mainnet-beta.solana.com",
+    "NEXT_PUBLIC_SOLANA_TESTNET_RPC": "https://api.testnet.solana.com",
+    "NEXT_PUBLIC_SOLANA_DEVNET_RPC": "https://api.devnet.solana.com",
+    "NEXT_PUBLIC_DEFAULT_NETWORK": "mainnet"
+  }
+}
