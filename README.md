@@ -145,7 +145,6 @@ The dashboard includes preset public RPC endpoints for easy deployment:
 
 These can be customized via environment variables for production deployments with premium RPC providers.
 
-## 📃 SDK Documentation
 
 ## 📦 Installation
 
