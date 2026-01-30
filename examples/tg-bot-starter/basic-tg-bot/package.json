@@ -14,7 +14,7 @@
     "@langchain/openai": "^0.3.16",
     "grammy": "^1.33.0",
     "messages": "link:@langchain/core/messages",
-    "next": "15.1.3",
+    "next": "16.1.5",
     "prebuilt": "link:@langchain/langgraph/prebuilt",
     "react": "^19.2.0",
     "react-dom": "^19.0.0",
