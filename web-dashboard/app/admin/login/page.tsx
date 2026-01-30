@@ -97,11 +97,13 @@ export default function AdminLoginPage() {
           </form>
 
           {/* Demo Credentials */}
-          <div className="mt-8 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-            <p className="text-blue-200 text-sm font-semibold mb-2">Demo Credentials:</p>
-            <p className="text-gray-300 text-sm">Email: admin@aiagentkit.com</p>
-            <p className="text-gray-300 text-sm">Password: admin123</p>
-          </div>
+          {process.env.NEXT_PUBLIC_ADMIN_DEMO_MODE === 'true' && (
+            <div className="mt-8 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+              <p className="text-blue-200 text-sm font-semibold mb-2">Demo Credentials:</p>
+              <p className="text-gray-300 text-sm">Email: admin@aiagentkit.com</p>
+              <p className="text-gray-300 text-sm">Password: admin123</p>
+            </div>
+          )}
 
           {/* Footer */}
           <div className="mt-6 text-center">
