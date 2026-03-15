@@ -4,6 +4,9 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { NetworkSelector } from '@/components/NetworkSelector'
 
+const SDK_VERSION = process.env.NEXT_PUBLIC_SDK_VERSION || '1.4.8'
+const DASHBOARD_VERSION = process.env.NEXT_PUBLIC_DASHBOARD_VERSION || '1.0.0'
+
 export default function SettingsPage() {
   const { connected, publicKey, disconnect } = useWallet()
 
@@ -57,11 +60,11 @@ export default function SettingsPage() {
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-400">SDK Version</span>
-              <span className="text-white">v1.4.8</span>
+              <span className="text-white">v{SDK_VERSION}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Dashboard Version</span>
-              <span className="text-white">v1.0.0</span>
+              <span className="text-white">v{DASHBOARD_VERSION}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-400">Network</span>

@@ -12,7 +12,7 @@ const tabs = [
   { label: 'Dashboard', href: '/dashboard', icon: '📊' },
   { label: 'Users', href: '/users', icon: '👥', adminOnly: true },
   { label: 'Admin', href: '/admin', icon: '🛡️', adminOnly: true },
-  { label: 'Developer', href: '/developer', icon: '⚙️' },
+  { label: 'Developer', href: '/developer', icon: '🔧' },
   { label: 'Settings', href: '/settings', icon: '⚙️' },
   { label: 'Docs', href: '/docs', icon: '📚' },
 ]
