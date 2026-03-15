@@ -145,6 +145,25 @@ The dashboard includes preset public RPC endpoints for easy deployment:
 
 These can be customized via environment variables for production deployments with premium RPC providers.
 
+## UI Preview
+
+### User Dashboard
+![User Dashboard](docs/assets/ui/user-dashboard.png)
+
+### Admin Dashboard
+![Admin Dashboard](docs/assets/ui/admin-dashboard.png)
+
+## 📚 Documentation
+
+| Guide | Description |
+|---|---|
+| [Architecture](docs/guides/architecture.md) | SDK architecture, agent design, protocol integrations |
+| [Deployment](docs/guides/deployment.md) | Deploy to Vercel or self-hosted |
+| [Environment Variables](docs/guides/env-vars.md) | All required environment variables |
+| [User Guide](docs/guides/user-guide.md) | Using the SDK and dashboard |
+| [Admin Guide](docs/guides/admin-guide.md) | Admin dashboard usage |
+| [Developer Guide](docs/guides/developer-guide.md) | Contributing, testing, local setup |
+
 ## 📃 SDK Documentation
 
 ## 📦 Installation
