@@ -12,7 +12,7 @@ export default function UsersPage() {
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/admin/login')
-    } else if (status === 'authenticated' && (session?.user as any)?.role !== 'admin') {
+    } else if (status === 'authenticated' && session?.user?.role !== 'admin') {
       router.push('/dashboard')
     }
   }, [status, session, router])

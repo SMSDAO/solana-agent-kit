@@ -1,8 +1,23 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// Rate limit store (in-memory; use Redis in production)
+// Rate limit store (in-memory; use Redis/Upstash in multi-instance production deployments)
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
+
+// Evict expired entries periodically to prevent unbounded memory growth
+const EVICTION_INTERVAL_MS = 5 * 60 * 1000 // 5 minutes
+let lastEviction = Date.now()
+
+function evictExpiredEntries(): void {
+  const now = Date.now()
+  if (now - lastEviction < EVICTION_INTERVAL_MS) return
+  lastEviction = now
+  for (const [key, entry] of rateLimitStore) {
+    if (now > entry.resetAt) {
+      rateLimitStore.delete(key)
+    }
+  }
+}
 
 function getClientIp(req: NextRequest): string {
   return (
@@ -32,6 +47,9 @@ function rateLimit(ip: string, limit: number, windowMs: number): boolean {
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   const ip = getClientIp(req)
+
+  // Periodically evict expired rate limit entries to prevent memory growth
+  evictExpiredEntries()
 
   // Apply tighter rate limiting on auth routes
   const isAuthRoute = pathname.startsWith('/api/auth')

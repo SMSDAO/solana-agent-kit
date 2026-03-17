@@ -5,6 +5,8 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 import { useEffect } from 'react'
 
+const SDK_VERSION = process.env.NEXT_PUBLIC_SDK_VERSION || '1.4.8'
+
 export default function Home() {
   const router = useRouter()
   const { connected, publicKey } = useWallet()
@@ -49,7 +51,7 @@ export default function Home() {
               {[
                 { icon: '📊', title: 'Dashboard', desc: 'Portfolio tracking, transactions, and analytics' },
                 { icon: '🛡️', title: 'Admin Panel', desc: 'Manage users with role-based access control' },
-                { icon: '⚙️', title: 'Developer Tools', desc: '30+ Solana protocol tool explorer and testing console' },
+                { icon: '🔧', title: 'Developer Tools', desc: '30+ Solana protocol tool explorer and testing console' },
                 { icon: '🔐', title: 'Wallet Auth', desc: 'Secure login with Phantom, Solflare, and more' },
               ].map(f => (
                 <div key={f.title} className="neo-card p-4">
@@ -68,7 +70,7 @@ export default function Home() {
 
             {/* Footer Info */}
             <div className="text-sm text-gray-500 mt-8 pt-8 border-t border-white/10">
-              <p>Powered by Solana Agent Kit v1.4.8 &bull; Deployable on Vercel</p>
+              <p>Powered by Solana Agent Kit v{SDK_VERSION} &bull; Deployable on Vercel</p>
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ export function Navigation() {
   const { data: session } = useSession()
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const isAdmin = (session?.user as any)?.role === 'admin'
+  const isAdmin = session?.user?.role === 'admin'
 
   const visibleTabs = tabs.filter(tab => {
     if (tab.adminOnly && !isAdmin) return false
