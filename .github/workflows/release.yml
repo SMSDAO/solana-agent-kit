@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9.4.0
+
+      - name: Install node-gyp prerequisites
+        run: sudo apt update && sudo apt install -y build-essential python3 pkg-config libudev-dev libusb-1.0-0-dev
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '23'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install -r --no-frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Extract release notes
+        id: extract_notes
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          # Extract section for this tag from CHANGELOG.md
+          if [ -f CHANGELOG.md ]; then
+            awk "/^## \[$TAG\]/{found=1; next} /^## \[/{if(found) exit} found{print}" CHANGELOG.md > release_notes.md
+          else
+            echo "Release $TAG" > release_notes.md
+          fi
+
+      - name: Create GitHub Release
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const tag = '${{ steps.extract_notes.outputs.tag }}';
+            const body = fs.existsSync('release_notes.md')
+              ? fs.readFileSync('release_notes.md', 'utf8')
+              : `Release ${tag}`;
+            await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: tag,
+              name: `${tag} - Production Ready Enterprise Release`,
+              body: body,
+              draft: false,
+              prerelease: tag.includes('-'),
+            });

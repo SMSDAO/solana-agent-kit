@@ -10,6 +10,14 @@ const nextConfig = {
         tls: false,
       };
     }
+
+    // Suppress optional pino-pretty module-not-found warning from @walletconnect
+    config.plugins.push(
+      new (require('webpack')).IgnorePlugin({
+        resourceRegExp: /^pino-pretty$/,
+      })
+    );
+
     return config;
   },
 }
