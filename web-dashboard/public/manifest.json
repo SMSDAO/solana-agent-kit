@@ -1,0 +1,26 @@
+{
+  "name": "Solana Agent Kit Dashboard",
+  "short_name": "SAK Dashboard",
+  "description": "Enterprise dashboard for Solana Agent Kit — AI-powered Solana protocol integrations",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0533",
+  "theme_color": "#9945FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["finance", "productivity"],
+  "lang": "en"
+}
