@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 15, 3, 30;
+  --background-end-rgb: 8, 14, 46;
+  --glow-purple: 153, 69, 255;
+  --glow-green: 20, 241, 149;
+  --glow-blue: 0, 194, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(135deg, #1a0533 0%, #0d1b4b 50%, #0a0a2e 100%);
+  min-height: 100vh;
+}
+
+/* Neo-Glow card */
+.neo-card {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl;
+  box-shadow: 0 4px 24px rgba(153, 69, 255, 0.15), 0 0 0 1px rgba(153, 69, 255, 0.08);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.neo-card:hover {
+  box-shadow: 0 4px 32px rgba(153, 69, 255, 0.3), 0 0 0 1px rgba(153, 69, 255, 0.2);
+  @apply border-purple-500/30;
+}
+
+/* Neo-Glow button */
+.neo-btn {
+  @apply font-semibold py-2 px-4 rounded-lg transition-all duration-200;
+  background: linear-gradient(135deg, #7c3aed, #9945FF);
+  box-shadow: 0 0 16px rgba(153, 69, 255, 0.4);
+}
+
+.neo-btn:hover {
+  box-shadow: 0 0 28px rgba(153, 69, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+.neo-btn:active {
+  transform: translateY(0);
+}
+
+/* Neo-Glow input */
+.neo-input {
+  @apply bg-white/5 text-white border border-white/20 rounded-lg px-4 py-2
+    focus:outline-none focus:border-purple-500 transition-colors duration-200;
+}
+
+.neo-input:focus {
+  box-shadow: 0 0 0 2px rgba(153, 69, 255, 0.3);
+}
+
+/* Glow badge variants */
+.badge-purple {
+  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  background: rgba(153, 69, 255, 0.2);
+  color: #c4b5fd;
+  border: 1px solid rgba(153, 69, 255, 0.3);
+}
+
+.badge-green {
+  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  background: rgba(20, 241, 149, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(20, 241, 149, 0.3);
+}
+
+.badge-blue {
+  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  background: rgba(0, 194, 255, 0.15);
+  color: #7dd3fc;
+  border: 1px solid rgba(0, 194, 255, 0.3);
+}
+
+.badge-red {
+  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Wallet adapter Neo-Glow overrides */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #7c3aed, #9945FF) !important;
+  box-shadow: 0 0 16px rgba(153, 69, 255, 0.4) !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-button:hover {
+  box-shadow: 0 0 28px rgba(153, 69, 255, 0.7) !important;
+  transform: translateY(-1px) !important;
+}
+
+.wallet-adapter-modal-wrapper {
+  background: rgba(15, 3, 30, 0.95) !important;
+}
+
+.wallet-adapter-modal {
+  background: linear-gradient(135deg, #1a0533, #0d1b4b) !important;
+  border: 1px solid rgba(153, 69, 255, 0.3) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 0 40px rgba(153, 69, 255, 0.2) !important;
+}
+
+/* Animated glow background blob */
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
